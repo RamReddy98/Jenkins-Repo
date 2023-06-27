@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        function_name = 'java-sample'
+        function_name = 'sample-java-app'
     }
 
     stages {
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Push'
 
-                sh "aws s3 cp target/sample-1.0.3.jar s3://bermtecbatch31"
+                sh "aws s3 cp target/sample-1.0.3.jar s3://java-app-backup"
             }
         }
 
