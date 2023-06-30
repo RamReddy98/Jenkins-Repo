@@ -16,7 +16,7 @@ pipeline {
         stage("SonarQube analysis") {
             agent any
             steps {
-              withSonarQubeEnv('Sonar') {
+              withSonarQubeEnv('sample') {
                 sh 'mvn sonar:sonar'
               }
             } 
