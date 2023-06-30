@@ -9,14 +9,17 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build'
-                sh 'mvn clean install'
+                sh 'mvn package'
             }
         }
 
-        stage('Test') {
+        stage("SonarQube analysis") {
+            agent any
             steps {
-                echo 'Test'
-            }
+              withSonarQubeEnv('Sonar') {
+                sh 'mvn sonar:sonar'
+              }
+            } 
         }
 
         stage('Push') {
