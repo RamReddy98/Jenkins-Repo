@@ -25,7 +25,7 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Push'
-                sh "aws s3 cp target/sample-1.0.3.jar s3://java-app-backup"
+                sh "aws s3 cp target/Sonar-1.0.3.jar s3://java-app-backup"
             }
         }
 
